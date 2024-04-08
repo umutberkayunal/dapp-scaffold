@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import Link from "next/link";
+import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import React, { useState } from "react";
 import { useAutoConnect } from '../contexts/AutoConnectProvider';
@@ -19,7 +20,21 @@ export const AppBar: React.FC = () => {
       {/* NavBar / Header */}
       <div className="navbar flex h-20 flex-row md:mb-2 shadow-lg bg-black text-neutral-content border-b border-zinc-600 bg-opacity-66">
         <div className="navbar-start align-items-center">
+        <div className='flex flex-row ml-1'>
+            <Link href="https://airdropscanner.xyz" passHref className="text-secondary hover:text-white">
+                <div className='flex flex-row ml-1'>
+                    <Image
+                        src="/airdropscanner.png"
+                        alt="airdropscanner icon"
+                        width={256}
+                        height={128}
+                    />
+                </div>
+            </Link>
+        </div>
+          
           <div className="hidden sm:inline w-22 h-22 md:p-2 ml-10">
+          <p>Powered by:</p>
             <Link href="https://solana.com" target="_blank" rel="noopener noreferrer" passHref className="text-secondary hover:text-white">
               <svg width="105%" height="24" viewBox="0 0 646 96" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_1064_606)">
@@ -47,6 +62,7 @@ export const AppBar: React.FC = () => {
               </svg>
             </Link>
           </div>
+          <p className="text-sm text-purple-500 pl-10">NOTE! THIS SITE IS UNDER DEVELOPMENT. ALL INFORMATION & CONTENT IS FOR DEVELOPMENT PURPOSES AND DOES NOT IMPLIFY ANYTHING.</p>
           <WalletMultiButtonDynamic className="btn-ghost btn-sm relative flex md:hidden text-lg " />
         </div>
 
@@ -59,11 +75,11 @@ export const AppBar: React.FC = () => {
             href="/"
             navigationStarts={() => setIsNavOpen(false)}
           />
-          <NavElement
+          {/*<NavElement
             label="Basics"
             href="/basics"
             navigationStarts={() => setIsNavOpen(false)}
-          />
+          /> */}
           <WalletMultiButtonDynamic className="btn-ghost btn-sm rounded-btn text-lg mr-6 " />
         </div>
           <label
